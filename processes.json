@@ -1,0 +1,4 @@
+{
+  "name": "speech-to-text-bot",
+  "script": "./app/index.js"
+}
