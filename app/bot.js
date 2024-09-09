@@ -1,5 +1,5 @@
 import { Client, IntentsBitField } from 'discord.js'
-import { getTranscription } from './openai.js'
+import { createClient, getTranscription } from './openai.js'
 
 export const client = new Client({
   intents: [
@@ -8,6 +8,8 @@ export const client = new Client({
     IntentsBitField.Flags.MessageContent
   ]
 })
+
+export const openai = createClient()
 
 client.on('messageCreate', async (message) => {
   const voice = message.attachments.find((attachment) => {
@@ -35,7 +37,7 @@ client.on('messageCreate', async (message) => {
   })
 
   const voiceFile = await downloadAttachment(voice)
-  const transcription = await getTranscription(voiceFile)
+  const transcription = await getTranscription(openai, voiceFile)
 
   console.log('transcribed:', {
     message: message.id,
