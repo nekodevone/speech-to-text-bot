@@ -1,0 +1,13 @@
+{
+  "tasks": {
+    "dev": "deno --watch -A app/main.ts",
+    "build": "deno run build:linux",
+    "build:win": "deno compile -o dist/app.exe --target=x86_64-pc-windows-msvc --allow-net --allow-read --allow-env app/main.ts",
+    "build:linux": "deno compile -o dist/app --target=x86_64-unknown-linux-gnu --allow-net --allow-read --allow-env app/main.ts"
+  },
+  "imports": {
+    "@std/dotenv": "jsr:@std/dotenv@^0.225.2",
+    "discord.js": "npm:discord.js@^14",
+    "openai": "npm:openai@^4"
+  }
+}

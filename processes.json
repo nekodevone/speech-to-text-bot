@@ -1,4 +1,6 @@
 {
-  "name": "speech-to-text-bot",
-  "script": "./app/index.js"
+  "name": "speech-to-text",
+  "script": "./app/main.ts",
+  "interpreter": "deno",
+  "interpreter_args": "-A"
 }
